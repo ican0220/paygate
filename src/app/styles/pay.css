@@ -1,0 +1,7 @@
+.pay-form-container{
+
+    background-image: url(/images/pay-bg-default.png);
+    border-radius: 24px;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
