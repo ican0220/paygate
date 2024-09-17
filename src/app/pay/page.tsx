@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface InvoiceComponentProps {
+interface PayComponentProps {
 
 }
 
-const InvoiceComponent: React.FC<InvoiceComponentProps> = ({}) => {
+const PayComponent: React.FC<PayComponentProps> = ({}) => {
     return (
         <div>
             Hello, this is pay page.
@@ -12,4 +12,4 @@ const InvoiceComponent: React.FC<InvoiceComponentProps> = ({}) => {
     )
 }
 
-export default InvoiceComponent;
+export default PayComponent;
