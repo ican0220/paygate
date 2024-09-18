@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import Divider from '@mui/material/Divider';
 import Link from "next/link";
+import EnableNotificationDialog from "./EnableNotificationDialog";
 
 interface IconDropDownButtonProps {
   items: Array<string>;
@@ -15,6 +16,7 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
   value,
   items,
 }) => {
+  const [openDlg, setOpenDlg] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -23,6 +25,9 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleModal = (action: any) => {
+    setOpenDlg(false);
+  }
 
   return (
     <>
@@ -48,7 +53,11 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
         className=""
       >
         <MenuItem onClick={handleClose}>Forward Invoice</MenuItem>
-        <MenuItem onClick={handleClose}>Enable Notifications</MenuItem>
+        <MenuItem onClick={() => {
+          handleClose();
+          setOpenDlg(true);
+        }}>Enable Notifications</MenuItem>
+        
         <Divider className="mx-auto w-[80%]"/>
         <MenuItem onClick={handleClose} className="mt-2">
           Need Help
@@ -61,6 +70,7 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
           </Link>
         </MenuItem>
       </Menu>
+      <EnableNotificationDialog open={openDlg} onClose={(action) => handleModal(action)}/>
     </>
   );
 };

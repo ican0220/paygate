@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.0",
     "@mui/material": "^6.1.0",
+    "classnames": "^2.5.1",
     "material-ui-flags": "^1.2.4",
     "next": "14.2.6",
     "react": "^18",
