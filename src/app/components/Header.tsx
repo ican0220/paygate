@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import IconDropDownButton from "../components/IconDropDownButton";
 import ImageDropdown from "../components/ImageDropdown";
 import BasicDialog from "../components/BasicDialog";
+import "../styles/pay.css";
 
 interface HeaderProps {}
 
