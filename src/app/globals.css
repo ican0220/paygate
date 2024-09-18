@@ -45,7 +45,7 @@ body {
   width: 35px !important;
   border-radius: 3px !important;
 }
-.css-15k6ek6-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+.drop-down-btn>div{
   display: flex !important;
   padding: 6px !important;
   border: 0px !important;

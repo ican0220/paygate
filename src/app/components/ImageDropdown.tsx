@@ -24,7 +24,7 @@ const ImageDropdown: React.FC<ImageDropdownProps> = ({ items, selectedValue, onC
         value={selectedValue}
         onChange={(event) => onChange(event.target.value)}
         displayEmpty
-        className='flex w-[200px] mr-2 bg-white'
+        className='flex w-[200px] mr-2 bg-white drop-down-btn'
       >
         {items.map((item) => (
           <MenuItem key={item.value} value={item.value}>

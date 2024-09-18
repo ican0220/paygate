@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./styles/pay.css";
+// import "./styles/pay.css";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 
