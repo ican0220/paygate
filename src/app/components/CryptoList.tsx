@@ -22,13 +22,13 @@ const CryptoList: React.FC<CryptoListProps> = ({
   onChange,
 }) => {
   return (
-    <div>
+    <div className="max-h-[52vh] scroll-m-1 overflow-y-scroll my-scrollable-div">
       {items.map((_, index) => (
         <React.Fragment key={index}>
           {selectedValue == _.value ? (
-            <div className="flex flex-row justify-between items-center bg-white rounded mb-2 p-5 border border-blue-500 hover:bg-blue-50 hover:cursor-pointer">
+            <div className="flex flex-row justify-between items-center bg-white rounded mb-2 p-3 border border-blue-500 hover:bg-blue-50 hover:cursor-pointer mr-2">
               <div className="flex flex-row items-center">
-                <div className="mr-3 bg-blue-600 rounded-lg overflow-hidden">
+                <div className="mr-3 bg-[#ccc] rounded-lg overflow-hidden">
                   <Image
                     src={_.imageUrl}
                     alt={_.title}
@@ -48,10 +48,10 @@ const CryptoList: React.FC<CryptoListProps> = ({
             </div>
           ) : (
             <div
-              className="flex flex-row items-center bg-white rounded mb-2 p-5 border border-white hover:border-[#e0e0e0] hover:cursor-pointer"
+              className="flex flex-row items-center bg-white rounded mb-2 p-3 border border-white hover:border-[#e0e0e0] hover:cursor-pointer mr-2"
               onClick={() => onChange(_.value)}
             >
-              <div className="mr-3 bg-blue-600 rounded-lg overflow-hidden">
+              <div className="mr-3 bg-[#ccc] rounded-lg overflow-hidden">
                 <Image
                   src={_.imageUrl}
                   alt={_.title}

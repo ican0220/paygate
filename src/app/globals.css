@@ -50,3 +50,13 @@ body {
   padding: 6px !important;
   border: 0px !important;
 }
+/* styles/globals.css or app/globals.css */
+.my-scrollable-div {
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 400px; /* Set a height for the scrollable area */
+}
+/* Customize scrollbar for Firefox */
+.my-scrollable-div {
+  scrollbar-width: thin;
+  scrollbar-color: #eeeeee white;
+}

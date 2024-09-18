@@ -33,20 +33,74 @@ const cryptoItems = [
     value: "usdt",
     title: "USDT",
     description: "556.4211 USDT",
-    imageUrl: "/images/coingate-balance.svg",
+    imageUrl: "/images/cryptos/usdt.svg",
   },
   {
     value: "bitcoin",
     title: "Bitcoin",
     description: "0.00924402 BTC",
-    imageUrl: "/images/binance.png",
+    imageUrl: "/images/cryptos/btc.svg",
   },
   {
     value: "ethereum",
-    title: "PEthereum",
-    description: "500.0 EUR",
-    imageUrl: "/images/coingate.svg",
+    title: "Ethereum",
+    description: "0.241081 ETH",
+    imageUrl: "/images/cryptos/eth.svg",
   },
+  {
+    value: "litecoin",
+    title: "Litecoin",
+    description: "8.742787 LTC",
+    imageUrl: "/images/cryptos/ltc.svg",
+  },
+  {
+    value: "tron",
+    title: "TRON",
+    description: "3714.7103 TRX",
+    imageUrl: "/images/cryptos/trx.svg",
+  },
+  {
+    value: "binance-coin",
+    title: "Binance Coin",
+    description: "1.026062 BNB",
+    imageUrl: "/images/cryptos/bnb.svg",
+  },
+  {
+    value: "xrp",
+    title: "XRP",
+    description: "968.9922 XRP",
+    imageUrl: "/images/cryptos/xrp.svg",
+  },
+  {
+    value: "dogecoin",
+    title: "Dogecoin",
+    description: "5530.97 DOGE",
+    imageUrl: "/images/cryptos/doge.svg",
+  },
+  {
+    value: "usdc",
+    title: "USDC",
+    description: "556.3592 USDC",
+    imageUrl: "/images/cryptos/usdc.svg",
+  },
+  {
+    value: "dai",
+    title: "Dai",
+    description: "555.4321 DAI",
+    imageUrl: "/images/cryptos/dai.svg",
+  },
+  {
+    value: "shiba",
+    title: "SHIBA INU",
+    description: "42229730.0 SHIB",
+    imageUrl: "/images/cryptos/shib.svg",
+  },
+  {
+    value: "bitcoin-cash",
+    title: "Bitcoin Cash",
+    description: "1.782785 BCH",
+    imageUrl: "/images/cryptos/bch.svg",
+  }
 ];
 
 const InvoiceComponent: React.FC<InvoiceComponentProps> = ({}) => {
@@ -89,10 +143,13 @@ const InvoiceComponent: React.FC<InvoiceComponentProps> = ({}) => {
                 selectedValue={selectedPaymentItem}
                 onChange={(val) => handlePaymentMethod(val)}
               />
-              <div>
+              {selectedPaymentItem == 'crypto' ? (
+                <>
+                <div>
                 <SearchInput value={searchTerm} onChange={handleSearchChange} />
               </div>
-              <CryptoList items={cryptoItems} selectedValue={selectedCrypto} onChange={(val) => handleCrypto(val)}/>
+              <CryptoList items={cryptoItems} selectedValue={selectedCrypto} onChange={(val) => handleCrypto(val)}/></>
+              ):(<></>)}
             </div>
           </div>
         </div>
