@@ -32,3 +32,21 @@ body {
     text-wrap: balance;
   }
 }
+.pay-form-container{
+
+  background-image: url(/images/pay-bg-default.png);
+  border-radius: 24px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.icon-drop-menu{
+  border-radius: 0px !important;
+  height: 35px !important;
+  width: 35px !important;
+  border-radius: 3px !important;
+}
+.css-15k6ek6-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  display: flex !important;
+  padding: 6px !important;
+  border: 0px !important;
+}
