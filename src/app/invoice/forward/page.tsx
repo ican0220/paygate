@@ -2,12 +2,24 @@
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import Header from "../../components/Header";
-import { Button } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import classnames from 'classnames';
+
+interface FormDataType {
+  name: string;
+  email: string;
+}
 
 interface ForwardComponentProps {}
 const ForwardComponent: React.FC<ForwardComponentProps> = ({}) => {
+
+  const [formData, setFormData] = useState<FormDataType>({
+    name: "",
+    email: "",
+  });
+
   const [openInfoDlg, setOpenInfoDlg] = useState<boolean>(false);
 
 
@@ -16,6 +28,20 @@ const ForwardComponent: React.FC<ForwardComponentProps> = ({}) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    },
+    [formData]
+  );
+
+  const onSubmit = () => {
+
+  }
 
   return (
     <div className="bg-[#F7F7F7]">
@@ -29,6 +55,44 @@ const ForwardComponent: React.FC<ForwardComponentProps> = ({}) => {
                   <h2 className="text-[32px] font-semibold mb-[16px]">
                     Forward Invoice
                   </h2>
+                  <Button onClick={() => {}} className="mb-5 p-0">
+                  <KeyboardArrowLeftIcon />
+                  Back
+                </Button>
+                <Box component={"form"} onSubmit={onSubmit}>
+                <TextField
+                  label="User Name"
+                  variant="outlined"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  fullWidth
+                  required
+                  margin="normal"
+                  className="mb-5"
+                />
+                <TextField
+                  label="Receiver Email"
+                  variant="outlined"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  fullWidth
+                  required
+                  margin="normal"
+                  className="mb-[30px]"
+                />
+                <Button
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                  className="w-full"
+                  disabled={formData.email && formData.name ? false : true}
+                  onClick={() => {}}
+                >
+                  Forward Invoice
+                </Button>
+                </Box>
                 </div>
                 
               </div>

@@ -1,5 +1,6 @@
 "use client";
-import React, {useState} from "react";
+import React, {use, useState} from "react";
+import { useRouter } from "next/navigation";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
@@ -16,6 +17,7 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
   value,
   items,
 }) => {
+  const router = useRouter();
   const [openDlg, setOpenDlg] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -52,7 +54,10 @@ const IconDropDownButton: React.FC<IconDropDownButtonProps> = ({
         }}
         className=""
       >
-        <MenuItem onClick={handleClose}>Forward Invoice</MenuItem>
+        <MenuItem onClick={() => {
+          router.push('/invoice/forward');
+          handleClose();
+        }}>Forward Invoice</MenuItem>
         <MenuItem onClick={() => {
           handleClose();
           setOpenDlg(true);
