@@ -1,6 +1,14 @@
+"use client";
+import { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  useEffect(() => {
+    router.push('/pay');
+  }, [router]);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-5 p-24">
       <Image src={"/images/logo.png"} width={200} height={50} alt="logo" />

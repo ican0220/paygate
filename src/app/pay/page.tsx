@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Box, Button, TextField, Slider, Typography } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 interface PayComponentProps {}
@@ -23,6 +24,7 @@ const marks = [
 ];
 
 const PayComponent: React.FC<PayComponentProps> = ({}) => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormDataType>({
     customer: "",
     amount: 500,
@@ -153,6 +155,7 @@ const PayComponent: React.FC<PayComponentProps> = ({}) => {
                   variant="contained"
                   color="primary"
                   className="w-full"
+                  onClick={() => router.push('/invoice')}
                 >
                   Checkout
                 </Button>
